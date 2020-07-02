@@ -1,9 +1,11 @@
 const { Router } = require('express');
 const router = Router();
 
+const itemController =  require('../controllers/items');
+
 // *** Routes ***
 router.get('/', (req, res) => {
-    res.send('home');
+    itemController.getItemsByFilter(req, res);
 });
 
 module.exports = router;
