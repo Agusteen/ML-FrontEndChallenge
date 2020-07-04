@@ -1,0 +1,34 @@
+<nav class="navbar">
+  <div class="container">
+    <form
+      (submit)="search(searchForm)"
+      #searchForm="ngForm"
+      autocomplete="off"
+      class="col"
+    >
+      <div class="row align-items-center">
+        <div class="col-1">
+          <img src="assets/Logo_ML.png" alt="Mercado Libre" />
+        </div>
+        <div class="col">
+          <div class="input-group">
+            <input
+              name="query"
+              ngModel
+              type="text"
+              class="form-control"
+              placeholder="Nunca dejes de buscar"
+              aria-label="Nunca dejes de buscar"
+              aria-describedby="Buscar"
+            />
+            <div class="input-group-append">
+              <button class="btn btn-light btn-outline-secondary" type="submit">
+                <img alt="Buscar" src="assets/ic_Search.png" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</nav>

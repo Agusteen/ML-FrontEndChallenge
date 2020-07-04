@@ -1,0 +1,15 @@
+@import "../../settings/_variables";
+
+.navbar {
+    width: 100%;
+    height: 60px;
+    background-color: $primaryYellow;
+
+    input {
+        font-size: 18px;
+    }
+
+    button {
+        background-color: $secondaryGray;
+    }
+}
