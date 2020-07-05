@@ -7,7 +7,7 @@ exports.getItemsByFilter = async (req, res) => {
             var responseData = response.data;
 
             var categories = getCategories(responseData);
-            var items = responseData.results.map(item => formatItemResult(item));
+            var items = responseData.results.map(item => formatItemResult(item)).slice(0, config.items_limit_result);
 
             var itemListModel = {
                 author: config.author,

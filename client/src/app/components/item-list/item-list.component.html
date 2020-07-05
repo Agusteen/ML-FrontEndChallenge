@@ -15,13 +15,15 @@
           <div class="col item-description">
             <div class="row">
               <span id="price">$ {{ item.price.amount }}</span>
-              <img src="assets/ic_shipping.png" height="30" alt="">
+              <div class="img-shipping" [hidden]="!item.free_shipping">
+                <img src="assets/ic_shipping.png" height="auto" alt="" />
+              </div>
             </div>
             <div class="row">
               <span id="title">{{ item.title }}</span>
             </div>
             <div class="row">
-                <span id="sub-title">{{ item.condition == 'new' ? 'Nuevo' : 'Usado' }}</span>
+              <span id="sub-title">{{ item.condition == "new" ? "Nuevo" : "Usado" }}</span>
             </div>
           </div>
         </div>

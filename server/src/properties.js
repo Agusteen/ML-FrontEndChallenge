@@ -5,4 +5,5 @@ module.exports = {
         name: 'Agustín',
         lastname: 'Muñoz Campos'
     }, 
+    items_limit_result: 4
 };

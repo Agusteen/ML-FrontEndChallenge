@@ -7,6 +7,24 @@
     margin: $space16;
 }
 
+li:hover {
+    background-color: $secondaryGray;
+    cursor: pointer;
+}
+
+.img-shipping {
+    width:38px; 
+    height:38px;
+    padding-left: $space16;
+
+    img {
+        max-width:100%; 
+        height:auto;
+        vertical-align: middle;
+        vertical-align: -webkit-baseline-middle;
+    }
+}
+
 .item-description {
     #price {
         font-size: 24px;
