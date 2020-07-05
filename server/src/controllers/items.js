@@ -47,7 +47,7 @@ exports.getItemById = async (req, res) => {
 
 // **** Private functions ****
 
-const getCategories = responseData => responseData.available_filters
+const getCategories = responseData => responseData.filters
         .find(filter => filter.id == "category")
         .values
         .map(category => category.name);

@@ -1,0 +1,26 @@
+@import "src/app/settings/_variables";
+
+.imgItemDetail {
+    width: 180px;
+    height: 180px;
+    border-radius: 4px;
+    margin: $space16;
+}
+
+.item-description {
+    #price {
+        font-size: 24px;
+        color: $primaryBlack;
+        margin-bottom: $space32;
+    }
+    
+    #title {
+        color: $primaryBlack;
+        font-size: 18px;
+    }
+
+    #sub-title {
+        color: $secondaryBlack;
+        font-size: 18px;
+    } 
+}

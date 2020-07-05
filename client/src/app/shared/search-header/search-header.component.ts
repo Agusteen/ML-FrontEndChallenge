@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-
-import { ItemsService } from 'src/app/services/items.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-header',
@@ -10,14 +9,12 @@ import { ItemsService } from 'src/app/services/items.service';
 })
 export class SearchHeaderComponent {
 
-  constructor(private _itemService: ItemsService) { }
+  constructor(private router: Router) { }
 
   search(form: NgForm): void {
     if(!form.valid) return;
-    var query: string = form.value.query;     
-    this._itemService.getItemsByFilter(query).subscribe((items) => {
-      console.log(items);      
-    })
+    var query: string = form.value.query;    
+    this.router.navigate(['/items'], { queryParams: {search: query} });     
   }
 
 }
