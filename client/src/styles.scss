@@ -4,6 +4,7 @@
 body {
     margin: 0px;
     background-color: $secondaryGray;
+    line-height: unset;
 }
 
 button, input {
@@ -12,4 +13,9 @@ button, input {
 
 .list-group-item {
     padding: 0 !important;
+}
+
+.spinner {
+    color: $primaryBlack;
+    margin-top: 50px;
 }

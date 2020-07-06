@@ -1,9 +1,7 @@
 @import "src/app/settings/_variables";
 
 .imgItemDetail {
-    width: 180px;
-    height: 180px;
-    border-radius: 4px;
+    @include img-list-dimension;
     margin: $space16;
 }
 

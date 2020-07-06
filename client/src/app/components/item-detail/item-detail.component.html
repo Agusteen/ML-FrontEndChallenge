@@ -15,14 +15,12 @@
                     {{ itemDetail.title }}
                   </div>
                   <div class="row item-price">
-                    $ {{ itemDetail.price.amount }}
+                    $ {{ itemDetail.price.amount | number:'':'es'}}
                   </div>
                   <div class="row item-button">
                     <button class="btn btn-primary btn-block" type="submit">Comprar</button>
                   </div>
-
-            </div>
-          
+            </div>          
         </div>
       </div>
       <div class="row item-description">

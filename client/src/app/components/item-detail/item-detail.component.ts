@@ -3,6 +3,9 @@ import { ActivatedRoute } from '@angular/router';
 import { ItemsService } from 'src/app/services/items.service';
 import { ItemModel } from 'src/app/models/item-model';
 
+import { registerLocaleData } from '@angular/common';
+import es from '@angular/common/locales/es';
+
 @Component({
   selector: 'app-item-detail',
   templateUrl: './item-detail.component.html',
@@ -17,6 +20,7 @@ export class ItemDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    registerLocaleData(es);
     var itemId: string = this.routeParams.snapshot.params.id;
     this.categoriesList = this._itemService.categoriesList;
     

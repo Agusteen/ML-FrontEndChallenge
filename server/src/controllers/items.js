@@ -30,7 +30,7 @@ exports.getItemById = async (req, res) => {
 
             var itemDetail = formatItemResult(responseData);
             itemDetail.sold_quantity = responseData.sold_quantity;
-            itemDetail.description = await getItemDescription(responseData.id);            
+            itemDetail.description = await getItemDescription(responseData.id);
 
             var itemDetailModel = {
                 author: config.author,
@@ -49,24 +49,23 @@ exports.getItemById = async (req, res) => {
 
 const getCategories = responseData => {
     var categories = responseData.filters.find(filter => filter.id == "category");
-    console.log(categories);
-    if(categories) {
+    if (categories) {
         return categories.values[0].path_from_root.map(category => category.name);
     }
 }
 
-const formatItemResult = (item) =>  itemsFormatted = {
-        id: item.id,
-        title: item.title,
-        price: {
-            currency: item.currency_id,
-            amount: item.price,
-            decimals: null
-        },
-        picture: item.pictures ? item.pictures[0].url : item.thumbnail,
-        condition: item.condition,
-        free_shipping: item.shipping.free_shipping
-    };
+const formatItemResult = (item) => itemsFormatted = {
+    id: item.id,
+    title: item.title,
+    price: {
+        currency: item.currency_id,
+        amount: item.price,
+        decimals: getDecimalsOfPrice(item.price)
+    },
+    picture: item.pictures ? item.pictures[0].url : item.thumbnail,
+    condition: item.condition,
+    free_shipping: item.shipping.free_shipping
+};
 
 const getItemDescription = async (itemId) => await axios.get(`${config.url_ML_api_items}${itemId}/description`)
     .then(response => response.data.plain_text)
@@ -74,3 +73,5 @@ const getItemDescription = async (itemId) => await axios.get(`${config.url_ML_ap
         console.log(error);
         res.status(500);
     });
+
+const getDecimalsOfPrice = (price) => parseInt(price.toString().split(".")[1] || 0);

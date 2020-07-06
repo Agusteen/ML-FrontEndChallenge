@@ -9,3 +9,10 @@ $primaryBlue: #3483FA;
 /* Spaces */
 $space16: 16px;
 $space32: 32px;
+
+/* Mixins */
+@mixin img-list-dimension {
+    width: 180px;
+    height: 180px;
+    border-radius: 4px;
+}
