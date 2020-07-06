@@ -1,6 +1,7 @@
 <div class="container">
+  <app-categories-nav [categories]="categoriesList"></app-categories-nav>
   <ul class="list-group">
-    <li class="list-group-item" *ngFor="let item of itemList">
+    <li class="list-group-item" *ngFor="let item of itemList" [routerLink]="['/items', item.id]">
       <div class="container">
         <div class="row align-items-center">
           <div class="imgItemDetail">
@@ -14,7 +15,7 @@
 
           <div class="col item-description">
             <div class="row">
-              <span id="price">$ {{ item.price.amount }}</span>
+              <span id="price">$ {{ item.price.amount | number }}</span>
               <div class="img-shipping" [hidden]="!item.free_shipping">
                 <img src="assets/ic_shipping.png" height="auto" alt="" />
               </div>
@@ -23,7 +24,9 @@
               <span id="title">{{ item.title }}</span>
             </div>
             <div class="row">
-              <span id="sub-title">{{ item.condition == "new" ? "Nuevo" : "Usado" }}</span>
+              <span id="sub-title">
+                {{ item.condition == "new" ? "Nuevo" : "Usado" }}
+            </span>
             </div>
           </div>
         </div>

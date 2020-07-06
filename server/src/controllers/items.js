@@ -47,10 +47,13 @@ exports.getItemById = async (req, res) => {
 
 // **** Private functions ****
 
-const getCategories = responseData => responseData.filters
-        .find(filter => filter.id == "category")
-        .values
-        .map(category => category.name);
+const getCategories = responseData => {
+    var categories = responseData.filters.find(filter => filter.id == "category");
+    console.log(categories);
+    if(categories) {
+        return categories.values[0].path_from_root.map(category => category.name);
+    }
+}
 
 const formatItemResult = (item) =>  itemsFormatted = {
         id: item.id,

@@ -1,0 +1,57 @@
+@import "src/app/settings/_variables";
+
+.img-item {
+    width:680px; 
+    height:auto;
+    text-align: center;
+
+    img {
+        max-width:680px; 
+        height:auto;
+    }
+}
+
+.item-summary {
+    margin-top: $space32;
+    color: $primaryBlack;
+
+    .sales-info {
+        font-size: 14px;   
+        margin-bottom: $space16;
+        color: $secondaryBlack;
+    }
+
+    .item-title {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .item-price {       
+        margin-bottom: $space32;
+        margin-top: $space32; 
+        font-size: 46px;
+    }
+
+    .item-button {
+        margin-right: $space32; 
+
+        button {
+            background-color: $primaryBlue;
+        }
+    }
+}
+
+.item-description {
+    margin-top: $space32;
+    margin-left: $space32;
+    width:680px; 
+    span {
+        font-size: 28px;        
+        margin-bottom: $space32;
+    }
+     
+    p {
+        color: $secondaryBlack;
+        font-size: 16px;     
+    }
+}

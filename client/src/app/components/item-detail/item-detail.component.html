@@ -1,1 +1,34 @@
-<p>item-detail works!</p>
+<div class="container">
+  <app-categories-nav [categories]="categoriesList"></app-categories-nav>
+  <div class="card">
+    <div class="card-body" *ngIf="itemDetail">
+      <div class="row">
+        <div class="img-item">
+          <img [src]="itemDetail.picture" alt="Imagen del producto" />
+        </div>
+        <div class="col">
+            <div class="item-summary">
+                <div class="row sales-info">
+                    {{ itemDetail.condition == "new" ? "Nuevo - " + itemDetail.sold_quantity + " vendidos" : "Usado" }}
+                  </div>
+                  <div class="row item-title">
+                    {{ itemDetail.title }}
+                  </div>
+                  <div class="row item-price">
+                    $ {{ itemDetail.price.amount }}
+                  </div>
+                  <div class="row item-button">
+                    <button class="btn btn-primary btn-block" type="submit">Comprar</button>
+                  </div>
+
+            </div>
+          
+        </div>
+      </div>
+      <div class="row item-description">
+          <span>Descripción del producto</span>
+          <p>{{itemDetail.description}}</p>
+      </div>
+    </div>
+  </div>
+</div>

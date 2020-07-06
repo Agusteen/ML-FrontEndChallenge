@@ -1,0 +1,14 @@
+@import "src/app/settings/_variables";
+
+.category-nav {
+    font-size: 14px;
+    color: $primaryGray;
+    padding-top: $space16;
+    padding-bottom: $space16;
+    display: inline-flex;
+
+    .separator {
+        margin-left: 6px;
+        margin-right: 6px;
+    }
+}

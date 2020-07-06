@@ -13,12 +13,13 @@ import { ItemModel } from 'src/app/models/item-model';
 export class ItemListComponent implements OnInit {
   query:string;
   itemList: ItemModel[];
+  categoriesList: string[];
 
   constructor(private route: ActivatedRoute, private _itemService: ItemsService) {
     this.route.queryParams.subscribe(params => {
-      this.query = params['search'];      
-      console.log(this.query);
+      this.query = params['search'];    
       this.itemList = [];
+      this.categoriesList = [];
       
       this.searchByFilter();
     });
@@ -29,11 +30,10 @@ export class ItemListComponent implements OnInit {
   }
 
   searchByFilter(): void {
-    console.log('GET', this.query);
     this._itemService.getItemsByFilter(this.query).subscribe((res) => {
       this.itemList = res.items;      
-      console.log( this.itemList);
-      
+      this._itemService.categoriesList = res.categories;  
+      this.categoriesList = this._itemService.categoriesList;
     });
   }
 
