@@ -13,17 +13,18 @@
 
 .item-summary {
     margin-top: $space32;
-    color: $primaryBlack;
+    color: $primaryBlack;    
 
     .sales-info {
         font-size: 14px;   
         margin-bottom: $space16;
-        color: $secondaryBlack;
+        color: $secondaryBlack;        
     }
 
     .item-title {
         font-size: 24px;
         font-weight: bold;
+        margin-right: $space32; 
     }
 
     .item-price {       
