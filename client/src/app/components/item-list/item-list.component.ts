@@ -19,6 +19,7 @@ export class ItemListComponent implements OnInit {
   categoriesList: string[];
 
   loading: boolean = true;
+  noResponse: boolean = false;
 
   constructor(private route: ActivatedRoute, private _itemService: ItemsService, private titleService: Title) {
     this.route.queryParams.subscribe(params => {
@@ -35,14 +36,17 @@ export class ItemListComponent implements OnInit {
   }
 
   searchByFilter(): void {
-    this._itemService.getItemsByFilter(this.query).subscribe((res) => {
+    this._itemService.getItemsByFilter(this.query).subscribe(res => {
       this.itemList = res.items;      
       this._itemService.categoriesList = res.categories;  
       this.categoriesList = this._itemService.categoriesList;
       var title = this.categoriesList ? this.categoriesList[this.categoriesList.length - 1] : 'Nunca dejes de buscar';
       this.titleService.setTitle(title); 
       this.loading = false;
-    });
+    }, error => {
+      this.loading = false;
+      this.noResponse = true;     
+    })
   }
 
 }

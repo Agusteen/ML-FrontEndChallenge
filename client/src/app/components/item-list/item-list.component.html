@@ -40,3 +40,8 @@
     <span class="sr-only"></span>
   </div>
 </div>
+
+<div class="d-flex justify-content-center spinner" *ngIf="noResponse && !loading">
+  <h5>El servidor no responde.</h5>
+</div>
+

@@ -17,19 +17,19 @@ export class ItemDetailComponent implements OnInit {
 
   itemDetail: ItemModel;
   categoriesList: string[];
+  loading: boolean = true;
 
-  constructor(private routeParams: ActivatedRoute, private _itemService: ItemsService, private titleService: Title) {  
-  }
+  constructor(private routeParams: ActivatedRoute, private _itemService: ItemsService, private titleService: Title) { }
 
   ngOnInit(): void {
     registerLocaleData(es);
     var itemId: string = this.routeParams.snapshot.params.id;
     this.categoriesList = this._itemService.categoriesList;
     
-    this._itemService.getItemById(itemId).subscribe((res) => {
+    this._itemService.getItemById(itemId).subscribe(res => {
       this.itemDetail = res.item;      
       if(this.itemDetail.title) this.titleService.setTitle(this.itemDetail.title);  
+      this.loading = false;
     });
   }
-
 }
