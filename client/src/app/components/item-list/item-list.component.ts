@@ -6,6 +6,7 @@ import es from '@angular/common/locales/es';
 import { ItemsService } from 'src/app/services/items.service';
 
 import { ItemModel } from 'src/app/models/item-model';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-item-list',
@@ -19,7 +20,7 @@ export class ItemListComponent implements OnInit {
 
   loading: boolean = true;
 
-  constructor(private route: ActivatedRoute, private _itemService: ItemsService) {
+  constructor(private route: ActivatedRoute, private _itemService: ItemsService, private titleService: Title) {
     this.route.queryParams.subscribe(params => {
       this.query = params['search'];    
       this.itemList = [];
@@ -38,6 +39,8 @@ export class ItemListComponent implements OnInit {
       this.itemList = res.items;      
       this._itemService.categoriesList = res.categories;  
       this.categoriesList = this._itemService.categoriesList;
+      var title = this.categoriesList ? this.categoriesList[this.categoriesList.length - 1] : 'Nunca dejes de buscar';
+      this.titleService.setTitle(title); 
       this.loading = false;
     });
   }
